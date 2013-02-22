@@ -1,16 +1,10 @@
+jQuery.presize_percent = 1;
 (function ($) {
     $.fn.extend({
         //plugin name - presize
         presize: function (options) {
-            
-            if(typeof window.percent == "undefined"){
-                var percent = 1;
-            } else {
-                var percent = window.percent;
-            }
-            
             var defaults = {
-                percent: percent,
+                percent: $.presize_percent,
                 check: "width,height,top,left,bottom,right,margin-left,margin-top",
                 add: ""
             };
