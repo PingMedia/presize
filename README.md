@@ -5,7 +5,9 @@ Percentage resize plugin for jQuery
 If you want make a responsive website, it's help for you. This plugin check all numeric style attribute of selected item and resize that by given percentage.
 
 ###USAGE
-<pre><code>$(selector).presize({percent:0.5});</code></pre>
+```javascript
+$(selector).presize({percent:0.5});
+```
 
 ---------------------------------------
 
@@ -45,18 +47,45 @@ If you want make a responsive website, it's help for you. This plugin check all 
 
 ---------------------------------------
 
-###TIPS
+##EXAMPLE
 
-For the fully responsive view, you should be put this to the window resize method. For example: 
+Firts step. We create an item, which becomes the base for the percentage calculating.
+```html
+<div id='alap'></div>
+```
 
-<pre>
-  <code>
-    $(window).resize(function () {
-        $.presize_base = "#alap";
-        $("#item").presize();
-    });
-  </code>
-</pre>
+Second step, in css we set up 2 importatn settings:
+```css
+#alap {
+	width: 100%;
+	max-width: 1000px;
+}
+```
+This setting allows the element to resize only if max-width is smaller than the screen size.
+
+Third step. We put the html element to the code :) For example:
+```html
+<div id='alap'>
+  <div id='resizable_item'></div>
+</div>
+```
+
+Final step. Set up js script
+```javascript
+$.presize_base = "#alap";
+
+function resize(){
+  $("#resizable_item").presize({exc:"left",add:'font-size'});
+}
+
+$(document).ready(){
+  resize();
+}
+
+$(window).resize(){
+  resize();
+}
+```
 
 The $.presize_base count the current changes by the **'#alap'** item. If the '#alap' item is smaller than the predefined max-width than the percent value is changing.
 
