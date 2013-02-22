@@ -35,9 +35,10 @@
 
 <h3>USAGE</h3>
 
-<pre><code>$(selector).presize({percent:0.5});</code></pre>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="nx">selector</span><span class="p">).</span><span class="nx">presize</span><span class="p">({</span><span class="nx">percent</span><span class="o">:</span><span class="mf">0.5</span><span class="p">});</span>
+</pre></div>
 
-<h3>SETTINGS</h3>
+<hr><h3>SETTINGS</h3>
 
 <table>
 <tr>
@@ -70,28 +71,52 @@
     <td>NONE</td>
     <td>Set the excepted style attributes</td>
   </tr>
-</table><h3>TIPS</h3>
+</table><hr><h2>EXAMPLE</h2>
 
-<p>For the fully responsive view, you should be put this to the window resize method. For example: </p>
+<p>Firts step. We create an item, which becomes the base for the percentage calculating.</p>
 
-<pre>
-  <code>
-    $(window).resize(function () {
-        $.presize_base = "#alap";
-        $("#item").presize();
-    });
-  </code>
-</pre>
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'alap'</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div>
+
+<p>Second step, in css we set up 2 importatn settings:</p>
+
+<div class="highlight"><pre><span class="nf">#alap</span> <span class="p">{</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span>
+    <span class="k">max-width</span><span class="o">:</span> <span class="m">1000px</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>This setting allows the element to resize only if max-width is smaller than the screen size.</p>
+
+<p>Third step. We put the html element to the code :) For example:</p>
+
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'alap'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'resizable_item'</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<p>Final step. Set up js script</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">presize_base</span> <span class="o">=</span> <span class="s2">"#alap"</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">resize</span><span class="p">(){</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">"#resizable_item"</span><span class="p">).</span><span class="nx">presize</span><span class="p">({</span><span class="nx">exc</span><span class="o">:</span><span class="s2">"left"</span><span class="p">,</span><span class="nx">add</span><span class="o">:</span><span class="s1">'font-size'</span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(){</span>
+  <span class="nx">resize</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">resize</span><span class="p">(){</span>
+  <span class="nx">resize</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
 
 <p>The $.presize_base count the current changes by the <strong>'#alap'</strong> item. If the '#alap' item is smaller than the predefined max-width than the percent value is changing.</p>
 
-<h3>DEMO</h3>
+<hr><h3>DEMO</h3>
 
 <p><a href="http://jsfiddle.net/pingmedia/pJVuG/16/embedded/result/">http://jsfiddle.net/pingmedia/pJVuG/16/embedded/result/</a></p>
-
-<h3>Copyright</h3>
-
-<p>All right reserved for <a href="http://pingmedia.hu/">P!ng Media</a></p>
       </section>
     </div>
     <footer>
