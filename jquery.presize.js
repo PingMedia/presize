@@ -23,7 +23,6 @@ jQuery.presize_options = "";
     $.fn.extend({
         //plugin name - presize
         presize: function (options) {
-        	
         	if($.presize_base){
         		var width = $(window).width();
 				var height = $(window).height();
@@ -81,7 +80,6 @@ jQuery.presize_options = "";
                             }
                         }
                     }
-                    $(selector).presize(o);
                 } else {
                     var element = $.presize_items[selector][index];  
                     for (i in element) {
