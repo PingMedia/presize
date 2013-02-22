@@ -26,19 +26,19 @@ If you want make a responsive website, it's help for you. This plugin check all 
   <tr>
     <td>check</td>
     <td>string</td>
-    <td>width,height,top,left,bottom,right,margin-left,margin-top</td>
+    <td>"width,height,top,left,bottom,right,margin-left,margin-top"</td>
     <td>Checked style attributes</td>
   </tr>
   <tr>
     <td>add</td>
     <td>string</td>
-    <td></td>
+    <td>NONE</td>
     <td>Add checked style attribute to the default checks</td>
   </tr>
   <tr>
     <td>exc</td>
     <td>string</td>
-    <td></td>
+    <td>NONE</td>
     <td>Set the excepted style attributes</td>
   </tr>
 </table>
