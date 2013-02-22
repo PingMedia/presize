@@ -45,20 +45,14 @@ For the fully responsive view, you should be put this to the window resize metho
 
 <pre>
   <code>
-    function percent_count(item) {
-      var alap_max_width = parseInt($(item).css("max-width"));
-      var alap_width = $(item).width();
-      return alap_width / alap_max_width;
-    }
-  
     $(window).resize(function () {
-        $.presize_percent = percent_count("#alap");
+        $.presize_base = "#alap";
         $("#item").presize();
     });
   </code>
 </pre>
 
-The percent_count() function count the current changes by the **'#alap'** item. If the '#alap' item is smaller than the predefined max-width than the percent value is changing.
+The $.presize_base count the current changes by the **'#alap'** item. If the '#alap' item is smaller than the predefined max-width than the percent value is changing.
 
 ---------------------------------------
 
