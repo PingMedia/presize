@@ -17,6 +17,7 @@
  * limitations under the License.
  * ========================================================== */
 jQuery.presize_base = false;
+jQuery.presize_options = "";
 
 (function ($) {
     $.fn.extend({
@@ -50,6 +51,8 @@ jQuery.presize_base = false;
             };
 
             var options = $.extend(defaults, options);
+            options = $.extend($.presize_options, options);
+            
             options.check = options.check + "," + options.add;
             var selector = $(this).selector;
 
