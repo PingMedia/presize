@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>PResize by PingMedia</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="without-description">
+        <h1>PResize</h1>
+        <p></p>
+        <p class="view"><a href="https://github.com/PingMedia/presize">View the Project on GitHub <small>PingMedia/presize</small></a></p>
+        <ul>
+          <li><a href="https://github.com/PingMedia/presize/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/PingMedia/presize/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/PingMedia/presize">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>PResize</h1>
+
+<p>Percentage resize plugin for jQuery</p>
+
+<p>If you want make a responsive website, it's help for you. This plugin check all numeric style attribute of selected item and resize that by given percentage.</p>
+
+<h3>USAGE</h3>
+
+<pre><code>$(selector).presize({percent:0.5});</code></pre>
+
+<h3>SETTINGS</h3>
+
+<table>
+<tr>
+<th>Attribute</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+<tr>
+<td>percent</td>
+    <td>float</td>
+    <td>1</td>
+    <td>Resize rate by percent. (1 = 100%, 0.5 = 50%)</td>
+  </tr>
+<tr>
+<td>check</td>
+    <td>string</td>
+    <td>width,height,top,left,bottom,right,margin-left,margin-top</td>
+    <td>Checked style attributes</td>
+  </tr>
+<tr>
+<td>add</td>
+    <td>string</td>
+    <td></td>
+    <td>Add checked style attribute to the default checks</td>
+  </tr>
+</table><h3>TIPS</h3>
+
+<p>For the fully responsive view, you should be put this to the window resize method. For example: </p>
+
+<pre>
+  <code>
+    function percent_count(item) {
+      var alap_max_width = parseInt($(item).css("max-width"));
+      var alap_width = $(item).width();
+      return alap_width / alap_max_width;
+    }
+  
+    $(window).resize(function () {
+        var percent = percent_count("#alap");
+        $("#item").presize({
+            percent: percent
+        });
+    });
+  </code>
+</pre>
+
+<p>The percent_count() function count the current changes by the <strong>'#alap'</strong> item. If the '#alap' item is smaller than the predefined max-width than the percent value is changing.</p>
+
+<h3>DEMO</h3>
+
+<p><a href="http://jsfiddle.net/pingmedia/pJVuG/14/embedded/result/">http://jsfiddle.net/pingmedia/pJVuG/14/embedded/result/</a></p>
+
+<h3>Copyright</h3>
+
+<p>All right reserved for <a href="http://pingmedia.hu/">P!ng Media</a></p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/PingMedia">PingMedia</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
