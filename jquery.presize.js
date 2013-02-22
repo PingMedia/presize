@@ -25,7 +25,8 @@ jQuery.presize_percent = 1;
             var defaults = {
                 percent: $.presize_percent,
                 check: "width,height,top,left,bottom,right,margin-left,margin-top",
-                add: ""
+                add: "",
+                exc: ""
             };
 
             var options = $.extend(defaults, options);
@@ -43,18 +44,20 @@ jQuery.presize_percent = 1;
             return this.each(function (index, value) {
                 var o = options;
                 var obj = $(this);
-
+                var exception = o.exc.split(",");
+                var checks = o.check.split(",");
+                
                 if (typeof window.items[selector][index] == "undefined") {
                     window.items[selector][index] = new Array;
-                    var checks = o.check.split(",");
                     for (c in checks) {
                         var css = checks[c];
                         var prop = parseInt(obj.css(css));
-
-                        if (prop) {
-                            window.items[selector][index][css] = prop;
+                        console.log(css,exception,$.inArray(css,exception));
+                        if($.inArray(css,exception)){
+                            if (prop) {
+                                window.items[selector][index][css] = prop;
+                            }
                         }
-
                     }
                 } else {
                     var element = window.items[selector][index];  
