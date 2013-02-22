@@ -61,3 +61,9 @@ For the fully responsive view, you should be put this to the window resize metho
 </pre>
 
 The percent_count() function count the current changes by the **'#alap'** item. If the '#alap' item is smaller than the predefined max-width than the percent value is changing.
+
+---------------------------------------
+
+###DEMO
+
+http://jsfiddle.net/pingmedia/pJVuG/14/embedded/result/
