@@ -16,14 +16,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * ========================================================== */
+jQuery.presize_base = false;
 
-jQuery.presize_percent = 1;
 (function ($) {
     $.fn.extend({
         //plugin name - presize
         presize: function (options) {
+        	
+        	if($.presize_base){
+        		var width = $(window).width();
+				var height = $(window).height();
+				var item_width = $($.presize_base).width();
+				var item_height = $($.presize_base).height();
+				var item_max_width = parseInt($($.presize_base).css("max-width"));
+				var item_max_height = parseInt($($.presize_base).css("max-height"));
+				
+				if(width>item_max_width){
+					var percent = 1;
+				} else if(item_width<item_max_width){
+					var percent = item_width / item_max_width;
+				} else {
+					var percent = item_height / item_max_height;
+				}
+	        } else {
+	        	var percent = 1;
+	        }
+        	
+        	console.log(percent);
+        	
             var defaults = {
-                percent: $.presize_percent,
+                percent: percent,
                 check: "width,height,top,left,bottom,right,margin-left,margin-top",
                 add: "",
                 exc: ""
@@ -52,13 +74,13 @@ jQuery.presize_percent = 1;
                     for (c in checks) {
                         var css = checks[c];
                         var prop = parseInt(obj.css(css));
-                        console.log(css,exception,$.inArray(css,exception));
                         if($.inArray(css,exception)){
                             if (prop) {
                                 window.items[selector][index][css] = prop;
                             }
                         }
                     }
+                    $(selector).presize(o);
                 } else {
                     var element = window.items[selector][index];  
                     for (i in element) {
