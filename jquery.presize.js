@@ -4,7 +4,7 @@
         presize: function (options) {
             var defaults = {
                 percent: 1,
-                check: "width,height,top,left,bottom,right",
+                check: "width,height,top,left,bottom,right,margin-left,margin-top",
                 add: ""
             };
 
@@ -37,7 +37,7 @@
 
                     }
                 } else {
-                    var element = window.items[selector][index];
+                    var element = window.items[selector][index];  
                     for (i in element) {
                         var original = element[i];
                         var percent = original * o.percent;
