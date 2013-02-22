@@ -52,10 +52,8 @@ For the fully responsive view, you should be put this to the window resize metho
     }
   
     $(window).resize(function () {
-        var percent = percent_count("#alap");
-        $("#item").presize({
-            percent: percent
-        });
+        $.presize_percent = percent_count("#alap");
+        $("#item").presize();
     });
   </code>
 </pre>
@@ -66,4 +64,4 @@ The percent_count() function count the current changes by the **'#alap'** item. 
 
 ###DEMO
 
-http://jsfiddle.net/pingmedia/pJVuG/14/embedded/result/
+http://jsfiddle.net/pingmedia/pJVuG/16/embedded/result/
