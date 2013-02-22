@@ -42,8 +42,6 @@ jQuery.presize_base = false;
 	        	var percent = 1;
 	        }
         	
-        	console.log(percent);
-        	
             var defaults = {
                 percent: percent,
                 check: "width,height,top,left,bottom,right,margin-left,margin-top",
@@ -55,12 +53,12 @@ jQuery.presize_base = false;
             options.check = options.check + "," + options.add;
             var selector = $(this).selector;
 
-            if (typeof window.items == "undefined") {
-                window.items = [];
+            if (typeof $.presize_items == "undefined") {
+                $.presize_items = [];
             }
 
-            if (typeof window.items[selector] == "undefined") {
-                window.items[selector] = new Array;
+            if (typeof $.presize_items[selector] == "undefined") {
+                $.presize_items[selector] = new Array;
             }
 
             return this.each(function (index, value) {
@@ -69,20 +67,20 @@ jQuery.presize_base = false;
                 var exception = o.exc.split(",");
                 var checks = o.check.split(",");
                 
-                if (typeof window.items[selector][index] == "undefined") {
-                    window.items[selector][index] = new Array;
+                if (typeof $.presize_items[selector][index] == "undefined") {
+                    $.presize_items[selector][index] = new Array;
                     for (c in checks) {
                         var css = checks[c];
                         var prop = parseInt(obj.css(css));
                         if($.inArray(css,exception)){
                             if (prop) {
-                                window.items[selector][index][css] = prop;
+                                $.presize_items[selector][index][css] = prop;
                             }
                         }
                     }
                     $(selector).presize(o);
                 } else {
-                    var element = window.items[selector][index];  
+                    var element = $.presize_items[selector][index];  
                     for (i in element) {
                         var original = element[i];
                         var percent = original * o.percent;
