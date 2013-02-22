@@ -37,7 +37,7 @@
 
 <pre><code>$(selector).presize({percent:0.5});</code></pre>
 
-<h3>SETTINGS</h3>
+<hr><h3>SETTINGS</h3>
 
 <table>
 <tr>
@@ -55,41 +55,39 @@
 <tr>
 <td>check</td>
     <td>string</td>
-    <td>width,height,top,left,bottom,right,margin-left,margin-top</td>
+    <td>"width,height,top,left,bottom,right,margin-left,margin-top"</td>
     <td>Checked style attributes</td>
   </tr>
 <tr>
 <td>add</td>
     <td>string</td>
-    <td></td>
+    <td>NONE</td>
     <td>Add checked style attribute to the default checks</td>
   </tr>
-</table><h3>TIPS</h3>
+<tr>
+<td>exc</td>
+    <td>string</td>
+    <td>NONE</td>
+    <td>Set the excepted style attributes</td>
+  </tr>
+</table><hr><h3>TIPS</h3>
 
 <p>For the fully responsive view, you should be put this to the window resize method. For example: </p>
 
 <pre>
   <code>
-    function percent_count(item) {
-      var alap_max_width = parseInt($(item).css("max-width"));
-      var alap_width = $(item).width();
-      return alap_width / alap_max_width;
-    }
-  
     $(window).resize(function () {
-        var percent = percent_count("#alap");
-        $("#item").presize({
-            percent: percent
-        });
+        $.presize_base = "#alap";
+        $("#item").presize();
     });
   </code>
 </pre>
 
-<p>The percent_count() function count the current changes by the <strong>'#alap'</strong> item. If the '#alap' item is smaller than the predefined max-width than the percent value is changing.</p>
+<p>The $.presize_base count the current changes by the <strong>'#alap'</strong> item. If the '#alap' item is smaller than the predefined max-width than the percent value is changing.</p>
 
-<h3>DEMO</h3>
+<hr><h3>DEMO</h3>
 
-<p><a href="http://jsfiddle.net/pingmedia/pJVuG/14/embedded/result/">http://jsfiddle.net/pingmedia/pJVuG/14/embedded/result/</a></p>
+<p><a href="http://jsfiddle.net/pingmedia/pJVuG/16/embedded/result/">http://jsfiddle.net/pingmedia/pJVuG/16/embedded/result/</a></p>
 
 <h3>Copyright</h3>
 
