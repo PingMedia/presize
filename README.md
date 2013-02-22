@@ -35,6 +35,12 @@ If you want make a responsive website, it's help for you. This plugin check all 
     <td></td>
     <td>Add checked style attribute to the default checks</td>
   </tr>
+  <tr>
+    <td>exc</td>
+    <td>string</td>
+    <td></td>
+    <td>Set the excepted style attributes</td>
+  </tr>
 </table>
 
 ---------------------------------------
