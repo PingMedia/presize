@@ -88,7 +88,7 @@ jQuery.presize_class = "presize";
                     for (i in element) {
                         var original = element[i];
                         var percent = original * o.percent;
-                        obj.css(i, percent);
+                        obj.css(i, percent+"px");
                     }
                 }
             });
