@@ -18,6 +18,7 @@
  * ========================================================== */
 jQuery.presize_base = false;
 jQuery.presize_options = "";
+jQuery.presize_class = "presize";
 
 (function ($) {
     $.fn.extend({
@@ -46,7 +47,8 @@ jQuery.presize_options = "";
                 percent: percent,
                 check: "width,height,top,left,bottom,right,margin-left,margin-top",
                 add: "",
-                exc: ""
+                exc: "",
+                c: $.presize_class
             };
 
             var options = $.extend(defaults, options);
@@ -71,6 +73,7 @@ jQuery.presize_options = "";
                 
                 if (typeof $.presize_items[selector][index] == "undefined") {
                     $.presize_items[selector][index] = new Array;
+                    $(selector).addClass(o.c);
                     for (c in checks) {
                         var css = checks[c];
                         var prop = parseInt(obj.css(css));
