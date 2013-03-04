@@ -77,10 +77,12 @@ jQuery.presize_class = "presize";
                     for (c in checks) {
                         var css = checks[c];
                         var prop = parseInt(obj.css(css));
-                        if($.inArray(css,exception)){
+                        if($.inArray(css,exception) == -1){
                             if (prop) {
                                 $.presize_items[selector][index][css] = prop;
                             }
+                        } else {
+                        	console.log("exc:",css);
                         }
                     }
                 } else {
