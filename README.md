@@ -93,4 +93,4 @@ The $.presize_base count the current changes by the **'#alap'** item. If the '#a
 
 ###DEMO
 
-http://jsfiddle.net/pingmedia/pJVuG/16/embedded/result/
+http://jsfiddle.net/pingmedia/pJVuG/20/embedded/result/
